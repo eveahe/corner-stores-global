@@ -1,0 +1,31 @@
+/* CSS files add styling rules to your content */
+
+body {
+  font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+  margin: 2em;
+}
+
+h1 {
+  font-style: italic;
+  color: #373fff;
+}
+
+#bodegaDiv {
+  border-style: dotted;
+  border-color: #f0af0a;
+  margin: 15px;
+  padding: 5px;
+  width: 200px;
+}
+
+#mapBox {
+  border-style: dotted;
+  border-color: #2B65EC;
+}
+
+.siteBox{
+  display: flex; /* or inline-flex */
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
