@@ -3,6 +3,7 @@
 body {
   font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
   margin: 2em;
+  background-image: linear-gradient(to right, grey , white);
 }
 
 h1 {
@@ -10,18 +11,30 @@ h1 {
   color: #373fff;
 }
 
-#bodegaDiv {
-  border-style: dotted;
-  border-color: #f0af0a;
-  margin: 15px;
-  padding: 5px;
-  width: 200px;
+img {
+   object-fit: contain;
+   height: 100%;
+   width: 100%;
 }
 
-#mapBox {
-  border-style: dotted;
-  border-color: #2B65EC;
+#worldMap{
+  width: 700px; 
+  height: 500px
 }
+
+#bodegaDiv {
+/*   border-style: dotted; */
+/*   border-color: pink; */
+  margin: 15px;
+  padding: 5px;
+  width: 30%;
+  overflow: hidden;
+}
+
+/* #mapBox {
+  border-style: dotted;
+  border-color: pink;
+} */
 
 .siteBox{
   display: flex; /* or inline-flex */

@@ -4,21 +4,22 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+  <script src="//d3js.org/d3.v3.min.js"></script>
+  <script src="//d3js.org/d3.geo.projection.v0.min.js"></script>
+  <script src="//d3js.org/topojson.v1.min.js"></script>
   <!-- I recommend you host this file on your own, since this will change without warning -->
   <script src="https://datamaps.github.io/scripts/datamaps.world.min.js?v=1"></script>
   <title>Bodegas of the World</title>
   <h1> Bodegas of the World</h1>
   <div class="siteBox">
   <div id="bodegaDiv">
-    <h1> Test!</h1> 
+<!--     <h1> Test!</h1>  -->
     <p id="testPara">
-      Whoop whoop whoop whoop whoop whoop whoop whoop whoop whoop
+      Lorem ipsum something about everyone needs a place to run out and get a drink and snack.
     </p>
        </div>
   <div id="mapBox">
-  <div id="worldMap" style="position: relative; width: 600px; height: 450px;"></div>
+  <div id="worldMap" style="position: relative;"></div>
   </div>
   </div>
   <!-- Add as many pattern definitions (defs) as you'd like, make sure to include an ID -->
@@ -79,14 +80,26 @@
 </svg>
      
      <script>
-      //var aitoff = d3.geoAitoff();
       var elem = document.querySelector('#testPara');
+       var width = 700,
+          height = 500;
+      //var aitoff = d3.geoAitoff();
+      //var mollweide = d3.geo.mollweide().scale(100);
+      //var mollweide = d3.geoMollweide().translate([map_width / 2 - .5, map_height / 2 - .5]).scale(90);
        
       var election = new Datamap({
         scope: 'world',
         element: document.getElementById('worldMap'),
-        projection: 'mercator',
-        
+        // projection: 
+        setProjection: function (element, options){
+              var projection = d3.geo.mollweide()
+                  .scale(150)
+                  .translate([width / 2, height / 2])
+                  .precision(.1);
+              var path = d3.geo.path().projection(projection);
+              return { path: path, projection: projection };
+              console.log('test');
+        },
         fills: {
           //defaultFill: '#f0af0a',
           defaultFill: 'url(#horizontal-stripe)',
@@ -101,19 +114,46 @@
             // dataUrl: 'country_data.csv',
             // dataType: 'csv', //using a CSV is not working properly.
         data: {
+          ATA: {fillKey: 'verticalStripe',
+                bodegaStatus: 'No known bodegas.',
+                bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2Fantartica.jpg?1544268460570'},
           USA: {fillKey: 'gradient',
                 bodegaStatus: 'Observed',
-                bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2FScreen%20Shot%202018-09-13%20at%2012.23.12%20AM.png?1543907460423'},
+                bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2Fmanhattan.jpeg?1544262342716'},
           CAN: {fillKey: 'gradient',
-                bodegaStatus: 'Observed' },
+                bodegaStatus: 'Observed',
+                bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2FIMG_6592.JPG?1544134120235'},
+          JPN: {fillKey: 'gradient',
+                bodegaStatus: 'Observed',
+                bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2Fjapan.jpeg?1544262068597'
+          },
           MEX: {fillKey: 'gradient',
-                bodegaStatus: 'Observed'},
+                bodegaStatus: 'Observed',
+                bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2FIMG_7032.JPG?1544166743907'},
+          GTM: {fillKey: 'gradient',
+                bodegaStatus: 'Observed',
+                bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2FIMG_2992.JPG?1544134122129'},
+          ARG: {fillKey: 'gradient',
+                bodegaStatus: 'Observed',
+                bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2FIMG_3967.JPG?1544134109943'},
           MAR: {fillKey: 'gradient',
-                bodegaStatus: 'Observed'},
+                bodegaStatus: 'Observed',
+                bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2FIMG_5389.JPG?1544134138327'},
           DEU: {fillKey: 'gradient',
-                bodegaStatus: 'Observed'},
+                bodegaStatus: 'Observed',
+                bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2Fgermany.JPG?1544262480146'},
+          CZE: {fillKey: 'gradient',
+                bodegaStatus: 'Observed',
+                bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2FIMG_9557.JPG?1544166923546'},
           ESP: {fillKey: 'gradient',
-                bodegaStatus: 'Observed'}
+                bodegaStatus: 'Observed',
+               bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2FIMG_5676.JPG?1544134144594'},
+          IND: {fillKey: 'gradient',
+                bodegaStatus: 'Observed',
+               bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2FIMG_5418.JPG?1544167165812'},
+          ZAF: {fillKey: 'gradient',
+                bodegaStatus: 'Observed',
+                bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2Fsouthafrica.jpg?1544262098413'}
           // RUS: {fillKey: 'verticalStripe' },
           // BRA: {fillKey: 'circles' },
           // GRL: {fillKey: 'gradient'},
@@ -136,33 +176,18 @@
                 }
       }
       },
-        //The below is definitely the right direction but it only sort of works. 
+        //The below puts the bodega image in the box if the country has a bodega image.
         done: function(datamap) {
         var html = elem.innerHTML;
-        datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
-          var countryName = datamap.options.data
-          if(!data) {
-            elem.innerHTML = 'Return to whoop whoop whoop. No bodegas.'
+        datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography, data) {
+          if(!datamap.options.data[geography.id]) {
+            elem.innerHTML = 'Not yet observed; please contribute a photo of a corner store if you have one!'
           } else {
-            elem.innerHTML = countryName
-
+            var countryData = datamap.options.data
+            var countryID = geography.id
+            var countryImage = countryData[countryID].bodegaImage
+            elem.innerHTML = "<img src=" + countryImage + "alt='Another Bodega'height='200' width='200'>"
           }
-          //console.log('WOO!');
-          //var html = elem.innerHTML;
-
-            // Set HTML content
-            //elem.innerHTML = 'We can dynamically change the HTML. We can even include HTML elements like <a href="#">this link</a>.'
-            // var state_id = geography.id;
-            // var fillkey_obj = datamap.options.data[state_id] || {fillKey: 'defaultFill'};
-            // var fillkey = fillkey_obj.fillKey;;
-            // var fillkeys = Object.keys(fills);
-            // var antikey = fillkeys[Math.abs(fillkeys.indexOf(fillkey) - 1)];
-            // var new_fills = {
-            //   [geography.id] : {
-            //     fillKey: antikey
-            //   }
-            // };
-            // datamap.updateChoropleth(new_fills);
         })}
 });
 
