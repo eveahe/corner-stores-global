@@ -1,37 +1,30 @@
-Welcome to Glitch
+Corner Stores Global
 =================
 
-Click `Show` in the header to see your app live. Updates to your code will instantly deploy and update live.
+This is both a project covering snax vendors globally AND template for others looking to play around with d3 maps, mapping something they love around the world. 
 
-**Glitch** is the friendly community where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
-
-Find out more [about Glitch](https://glitch.com/about).
-
-
-Your Project
+The Project 
 ------------
 
-### ← README.md
+## How it's made
 
-That's this file, where you can tell people what your cool website does and how you built it.
+The map is made is [datamaps](http://datamaps.github.io/), an easily customizable library based on the data visualization library d3. 
 
-### ← index.html
+All of the countries have a default fill. The countries that have a bodega image are listed in the json object in script.js. The image links are stored in that file, while the images are hosted in the glitch asset folder. 
 
-Where you'll write the content of your website. 
+### Notes on the structure.
+#### index.html
+The main thing to note here is the svg pattern creations and the code to create a custom legend.  
 
-### ← style.css
+#### script.js
+This script creates the datamap map. When a user clicks on the country on the map, it creates both the standard datamap popup. If the country has a corner store picture, then it pops up the picture on the page.
 
-CSS files add styling rules to your content.
+Customizations from standard datamap: 
+- Custom svg pattern based fill. 
+- The Mollweide projection.
 
-### ← script.js
 
-If you're feeling fancy you can add interactivity to your site with JavaScript.
-
-### ← assets
-
-Drag in `assets`, like images or music, to add them to your project
-
-Made by [Glitch](https://glitch.com/)
+Hosted on [Glitch](https://glitch.com/). Made by [eve](https://twitter.com/eveahe).
 -------------------
 
 \ ゜o゜)ノ

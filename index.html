@@ -2,6 +2,12 @@
 <meta charset="utf-8">
 <head>
   <link rel="stylesheet" href="/style.css">
+  <link href="https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2Ffavicon.ico?1544363618149" rel="shortcut icon" type="image/x-icon" />
+  <meta property="og:title" content="Corner Stores of the World">
+  <meta property="og:description" content="Snax global">
+  <meta property="og:image" content="https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2FIMG_2992.JPG?1544134122129">
+  <meta property="og:url" content="https://cornerstoresglobal.glitch.me/">
+  <title>Corner Stores Global</title>
 </head>
 <body>
   <script src="//d3js.org/d3.v3.min.js"></script>
@@ -9,15 +15,38 @@
   <script src="//d3js.org/topojson.v1.min.js"></script>
   <!-- I recommend you host this file on your own, since this will change without warning -->
   <script src="https://datamaps.github.io/scripts/datamaps.world.min.js?v=1"></script>
-  <title>Bodegas of the World</title>
-  <h1> Bodegas of the World</h1>
+  <h1> Corner Stores Global</h1>
   <div class="siteBox">
   <div id="bodegaDiv">
-<!--     <h1> Test!</h1>  -->
-    <p id="testPara">
-      Lorem ipsum something about everyone needs a place to run out and get a drink and snack.
-    </p>
+    <p id="textPara">
+      Everyone needs a spot on the corner.<br><br>...deli bodega tiendita späti off-license...</p>
+    <div class="legend">
+      <div class="legend-item">
+      <svg height="30" width="30" style="float:left" class="pattern-swatch">
+        <rect style="fill: url(#gradient)"  x="0" y="0" rx="8" ry="8" height="30" width="30"></rect>
+          </svg>
+      <p class="legend-text">
+        Observed.
+        </p>
+           </div>
+      <div class="legend-item">
+      <svg height="30" width="30" style="float:left" class="pattern-swatch">
+        <rect style="fill: url(#horizontal-stripe)"  x="0" y="0" rx="8" ry="8" height="30" width="30"></rect>
+          </svg>
+      <p class="legend-text">
+        Not yet.
+        </p>
+          </div>
+      <div class="legend-item">
+      <svg height="30" width="30" style="float:left" class="pattern-swatch">
+        <rect style="fill: url(#circles)"  x="0" y="0" rx="8" ry="8" height="30" width="30"></rect>
+          </svg>
+       <p class="legend-text">
+        ???
+        </p>
        </div>
+      </div>
+    </div>
   <div id="mapBox">
   <div id="worldMap" style="position: relative;"></div>
   </div>
@@ -61,11 +90,11 @@
         <pattern id="circles"
                  width="4" height="4"
                  patternunits="userSpaceOnUse">
-                   <circle cx="2.5" cy="2.5" r="1.3" fill="green" />
+                   <circle cx="2.5" cy="2.5" r="1.3" fill="#FFA07A" />
       </pattern>
     </defs>
       
-       <!-- Gradient pattern. Wouldn't really recommend this one. -->
+       <!-- Gradient pattern. <3 <3 <3 -->
      <lineargradient id="gradient">
         <stop offset="5%" stop-color="#F60" />
         <stop offset="95%" stop-color="#FF6" />
@@ -78,122 +107,14 @@
          <polygon points="3,0 6,6 0,6" fill="purple"/>
       </pattern>
 </svg>
-     
-     <script>
-      var elem = document.querySelector('#testPara');
-       var width = 700,
-          height = 500;
-      //var aitoff = d3.geoAitoff();
-      //var mollweide = d3.geo.mollweide().scale(100);
-      //var mollweide = d3.geoMollweide().translate([map_width / 2 - .5, map_height / 2 - .5]).scale(90);
-       
-      var election = new Datamap({
-        scope: 'world',
-        element: document.getElementById('worldMap'),
-        // projection: 
-        setProjection: function (element, options){
-              var projection = d3.geo.mollweide()
-                  .scale(150)
-                  .translate([width / 2, height / 2])
-                  .precision(.1);
-              var path = d3.geo.path().projection(projection);
-              return { path: path, projection: projection };
-              console.log('test');
-        },
-        fills: {
-          //defaultFill: '#f0af0a',
-          defaultFill: 'url(#horizontal-stripe)',
-          horizontalStripe: 'url(#horizontal-stripe)',
-          diagonalStripe: 'url(#diagonal-stripe)',
-          verticalStripe: 'url(#vertical-stripe)',
-          circles: 'url(#circles)',
-          gradient: 'url(#gradient)',
-          triangle: 'url(#triangle)'
-        },
-        
-            // dataUrl: 'country_data.csv',
-            // dataType: 'csv', //using a CSV is not working properly.
-        data: {
-          ATA: {fillKey: 'verticalStripe',
-                bodegaStatus: 'No known bodegas.',
-                bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2Fantartica.jpg?1544268460570'},
-          USA: {fillKey: 'gradient',
-                bodegaStatus: 'Observed',
-                bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2Fmanhattan.jpeg?1544262342716'},
-          CAN: {fillKey: 'gradient',
-                bodegaStatus: 'Observed',
-                bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2FIMG_6592.JPG?1544134120235'},
-          JPN: {fillKey: 'gradient',
-                bodegaStatus: 'Observed',
-                bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2Fjapan.jpeg?1544262068597'
-          },
-          MEX: {fillKey: 'gradient',
-                bodegaStatus: 'Observed',
-                bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2FIMG_7032.JPG?1544166743907'},
-          GTM: {fillKey: 'gradient',
-                bodegaStatus: 'Observed',
-                bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2FIMG_2992.JPG?1544134122129'},
-          ARG: {fillKey: 'gradient',
-                bodegaStatus: 'Observed',
-                bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2FIMG_3967.JPG?1544134109943'},
-          MAR: {fillKey: 'gradient',
-                bodegaStatus: 'Observed',
-                bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2FIMG_5389.JPG?1544134138327'},
-          DEU: {fillKey: 'gradient',
-                bodegaStatus: 'Observed',
-                bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2Fgermany.JPG?1544262480146'},
-          CZE: {fillKey: 'gradient',
-                bodegaStatus: 'Observed',
-                bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2FIMG_9557.JPG?1544166923546'},
-          ESP: {fillKey: 'gradient',
-                bodegaStatus: 'Observed',
-               bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2FIMG_5676.JPG?1544134144594'},
-          IND: {fillKey: 'gradient',
-                bodegaStatus: 'Observed',
-               bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2FIMG_5418.JPG?1544167165812'},
-          ZAF: {fillKey: 'gradient',
-                bodegaStatus: 'Observed',
-                bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2Fsouthafrica.jpg?1544262098413'}
-          // RUS: {fillKey: 'verticalStripe' },
-          // BRA: {fillKey: 'circles' },
-          // GRL: {fillKey: 'gradient'},
-          // CHN: {fillKey: 'triangle' }
-          
-        },
-         geographyConfig: {
-         hideAntarctica: false,
-         popupTemplate: function(geo, data) {
-                if(!data){
-                        return ['<div class="hoverinfo"><strong>',
-                        //The status is not working, it's making the name thing null for all of them that don't have a status. 
-                        geo.properties.name, ' ', '</strong><br>' + 'Not yet observed.' +
-                        '</div>'].join('');
-                } else {
-                return ['<div class="hoverinfo"><strong>',
-                        //The status is not working, it's making the name thing null for all of them that don't have a status. 
-                        geo.properties.name + ' ' + '</strong><br>' + data.bodegaStatus, 
-                        '</div>'].join('');
-                }
-      }
-      },
-        //The below puts the bodega image in the box if the country has a bodega image.
-        done: function(datamap) {
-        var html = elem.innerHTML;
-        datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography, data) {
-          if(!datamap.options.data[geography.id]) {
-            elem.innerHTML = 'Not yet observed; please contribute a photo of a corner store if you have one!'
-          } else {
-            var countryData = datamap.options.data
-            var countryID = geography.id
-            var countryImage = countryData[countryID].bodegaImage
-            elem.innerHTML = "<img src=" + countryImage + "alt='Another Bodega'height='200' width='200'>"
-          }
-        })}
-});
-
-           </script>
+<footer>
+  <div class="footer-area">
+    <hr>
+    <p class="footer-text">
+      Built by avid snacker <a href="https://eveahe.github.io">Eve Ahearn</a>. Corner store spottings & contributions very much welcome. Let's collect all the corner stores of the world. Have a better photo for a particular country? That's welcome too!
+    </p>
+  </div>
+  </footer>
 </body>
-
- <!-- All Credit to: https://web.archive.org/web/20150625160038/http://datamaps.markmarkoh.com/custom-fill-patterns-for-datamaps/  -->
-<!-- Put the images in the left of the map, or top of the map on mobile. Organize code to map it easy to make this the X of the world. -->
-<!-- color fill should then depend on whether there is an asset with that given name. -->
+<script src="/script.js"></script>
+ <!-- All credit for map fill code to: https://web.archive.org/web/20150625160038/http://datamaps.markmarkoh.com/custom-fill-patterns-for-datamaps/  -->
