@@ -22,8 +22,9 @@
         },
         fills: {
           //uncomment the default fill if you want to set the default fill to be a hex color instead of a pattern.
-          // defaultFill: '#f0af0a',
-          defaultFill: 'url(#horizontal-stripe)',
+          defaultFill: 'grey',
+          // defaultFill: 'url(#horizontal-stripe)',
+          noStores: 'yellow',
           horizontalStripe: 'url(#horizontal-stripe)',
           diagonalStripe: 'url(#diagonal-stripe)',
           verticalStripe: 'url(#vertical-stripe)',
@@ -37,7 +38,7 @@
           ARG: {fillKey: 'gradient',
                 bodegaStatus: 'Observed',
                 bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2FIMG_3967.JPG?1544134109943'},
-          ATA: {fillKey: 'circles',
+          ATA: {fillKey: 'noStores',
                 bodegaStatus: 'No known bodegas.',
                 bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2Fantartica.jpg?1544268460570'},
           CAN: {fillKey: 'gradient',
