@@ -29,7 +29,8 @@
           diagonalStripe: 'url(#diagonal-stripe)',
           verticalStripe: 'url(#vertical-stripe)',
           circles: 'url(#circles)',
-          gradient: 'url(#gradient)',
+          gradient: '#373fff',
+          // gradient: 'url(#gradient)',
           triangle: 'url(#triangle)'
         },
         
@@ -53,6 +54,10 @@
           // ESP: {fillKey: 'gradient',
           //       bodegaStatus: 'Observed',
           //      bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2FIMG_5676.JPG?1544134144594'},
+          GBR: {fillKey: 'gradient',
+                bodegaStatus: 'Observed',
+                bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2Fengland.JPG?1547450018255'
+                },
           GTM: {fillKey: 'gradient',
                 bodegaStatus: 'Observed',
                 bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2FIMG_2992.JPG?1544134122129'},
@@ -79,6 +84,7 @@
                 bodegaStatus: 'Observed',
                 bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2Fphoto5850439520028306998.jpg?1546454554449'
                },
+       
           USA: {fillKey: 'gradient',
                 bodegaStatus: 'Observed',
                 bodegaImage: 'https://cdn.glitch.com/23fa8cec-e81a-4213-bfab-85d4d2ae92d0%2Fmanhattan.jpeg?1544262342716'},
